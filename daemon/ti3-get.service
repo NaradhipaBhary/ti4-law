@@ -6,7 +6,7 @@ After=network.target
 User=<user>
 Group=www-data
 WorkingDirectory=<pwd>
-ExecStart=<pwd>/venv/bin/gunicorn --access-logfile - --workers 1 --bind unix:<pwd>/get.sock get:app
+ExecStart=<pwd>/venv/bin/gunicorn --access-logfile - -k uvicorn.workers.UvicornWorker --workers 1 --bind unix:<pwd>/get.sock get:app
 
 [Install]
 WantedBy=multi-user.target
