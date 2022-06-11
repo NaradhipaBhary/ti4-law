@@ -1,0 +1,8 @@
+POST http://127.0.0.1:8000/update/
+Content-Type: application/json
+
+{
+  "NPM": "1906306842",
+  "name": "Naradhipa M S Bhary"
+}
+###
