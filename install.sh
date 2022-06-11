@@ -18,8 +18,8 @@ pip3 install -r requirements.txt
 
 echo "Installing Services"
 
-sed -e "s:<pwd>:$(pwd):g" -e "s:<user>:$USER:g" ./daemon/ti-3-get.service | tee /etc/systemd/system/ti-3-get.service
-sed -e "s:<pwd>:$(pwd):g" -e "s:<user>:$USER:g" ./daemon/ti-3-update.service | tee /etc/systemd/system/ti-3-update.service
+sed -e "s:<pwd>:$(pwd):g" -e "s:<user>:$USER:g" ./daemon/ti3-get.service | tee /etc/systemd/system/ti-3-get.service
+sed -e "s:<pwd>:$(pwd):g" -e "s:<user>:$USER:g" ./daemon/ti3-update.service | tee /etc/systemd/system/ti-3-update.service
 
 systemctl start ti-3-get.service
 systemctl enable ti-3-get.service
