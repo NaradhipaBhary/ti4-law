@@ -1,7 +1,8 @@
+#!/bin/bash
 echo "TI4 Installation"
-if [ "$EUID" -ne 0 ]
-  then echo "Please run as root"
-  exit
+if [[ $EUID -ne 0 ]]; then
+   echo "This script must be run as root"
+   exit 1
 fi
 
 echo "Please input your hostname"
@@ -26,6 +27,8 @@ systemctl enable ti-3-get.service
 
 systemctl start ti-3-update.service
 systemctl enable ti-3-update.service
+
+mkdir nginx-cache
 
 sed -e "s:<pwd>:$(pwd):g" -e "s/<host>/$tiHostname/g" ./nginx.conf | tee "/etc/nginx/sites-available/$tiHostname"
 ln -s "/etc/nginx/sites-available/$tiHostname" "/etc/nginx/sites-enabled"

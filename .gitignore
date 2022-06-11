@@ -153,4 +153,6 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
+nginx-cache/
+
 sqlite.db
