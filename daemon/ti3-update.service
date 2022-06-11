@@ -1,5 +1,5 @@
 [Unit]
-Description=TI4 Get service
+Description=TI4 update service
 After=network.target
 
 [Service]
