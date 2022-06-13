@@ -1,9 +1,9 @@
 import random
 
-from locust import HttpUser, task
+from locust import FastHttpUser, task
 
 
-class StressTestingUser(HttpUser):
+class StressTestingUser(FastHttpUser):
 
     def on_start(self):
         self.transaction_id = ''.join([str(random.randint(0, 9)) for _ in range(12)])
