@@ -15,6 +15,7 @@ echo "Please input your hostname"
 read -r tiHostname
 
 echo "Installing Dependencies"
+apt-get update
 apt-get install python3-pip python3-dev nginx
 pip3 install virtualenv
 virtualenv venv
