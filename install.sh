@@ -25,8 +25,8 @@ venv/bin/pip3 install -r requirements.txt
 
 echo "Installing Services"
 
-sed -n -e "s:<pwd>:$(pwd):g" -e "s:<user>:$USER:g" ./daemon/ti3-get.service | tee /etc/systemd/system/ti-3-get.service
-sed -n -e "s:<pwd>:$(pwd):g" -e "s:<user>:$USER:g" ./daemon/ti3-update.service | tee /etc/systemd/system/ti-3-update.service
+sed -e "s:<pwd>:$(pwd):g" -e "s:<user>:$USER:g" ./daemon/ti3-get.service | tee /etc/systemd/system/ti-3-get.service
+sed -e "s:<pwd>:$(pwd):g" -e "s:<user>:$USER:g" ./daemon/ti3-update.service | tee /etc/systemd/system/ti-3-update.service
 
 systemctl daemon-reload
 
@@ -38,6 +38,6 @@ systemctl enable ti-3-update.service
 
 mkdir nginx-cache
 
-sed -n -e "s:<pwd>:$(pwd):g" -e "s/<host>/$tiHostname/g" ./nginx.conf | tee "/etc/nginx/sites-available/$tiHostname" > /dev/null
+sed -e "s:<pwd>:$(pwd):g" -e "s/<host>/$tiHostname/g" ./nginx.conf | tee "/etc/nginx/sites-available/$tiHostname" > /dev/null
 ln -s "/etc/nginx/sites-available/$tiHostname" "/etc/nginx/sites-enabled" > /dev/null
 systemctl restart nginx
