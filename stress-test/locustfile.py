@@ -15,5 +15,5 @@ class StressTestingUser(FastHttpUser):
 
     @task
     def retrieve_data(self):
-        self.client.get(f"/read/{self.npm}")
-        self.client.get(f"/read/{self.npm}/{self.transaction_id}")
+        self.client.get(f"/read/{self.npm}", name="/read/{NPM}")
+        self.client.get(f"/read/{self.npm}/{self.transaction_id}", name="/read/{NPM}/{TXID}")
